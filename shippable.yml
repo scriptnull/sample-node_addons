@@ -28,9 +28,9 @@ build:
   #  - firefox --version
 
   post_ci:
-    - docker build --rm -t= shippabledocker/sample_node:qa .
+    - docker build --rm -t=shippabledocker/sample_node:qa .
     - docker push shippabledocker/sample_node:qa
-    - docker build --rm -t= shippabledocker/sample_node:qa*!! .
+    - docker build --rm -t=shippabledocker/sample_node:qa*!! .
     - docker push shippabledocker/sample_node:qa*!!
 
 integrations:
