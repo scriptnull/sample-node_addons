@@ -25,7 +25,7 @@ build:
   ci:
     - ps -eax
     - ls -al
-    - firefox --version
+  #  - firefox --version
 
   post_ci:
     - docker build --rm -t= shippabledocker/sample_node:qa .
