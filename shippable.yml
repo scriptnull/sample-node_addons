@@ -5,8 +5,7 @@ language: node_js
 node_js:
   - 0.12
 addons:
-   firefox: "21.0"
-   firefox: "34.0"
+   chrome: "33.2"
    hosts:
     - google.com
     - asdf.com
