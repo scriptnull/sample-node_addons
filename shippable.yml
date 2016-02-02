@@ -6,6 +6,9 @@ node_js:
   - 0.12
 addons:
    firefox: "21.0"
+   selenium: "2.43"
+services:
+   - selenium
 env:
   global:
     - FOO=FUBU
@@ -14,14 +17,8 @@ env:
     - M1=ONE
 
 build:
-  pre_ci:
-    - docker build -t=shippabledocker/sample_node .
-
-  pre_ci_boot:
-    image_name: shippabledocker/sample_node
-    image_tag: latest
-    pull: false
-    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+  #pre_ci:
+   # - docker build -t=shippabledocker/sample_node .
 
   ci:
     - ps -eax
@@ -29,7 +26,8 @@ build:
     - firefox --version
 
   post_ci:
-    - docker push shippabledocker/sample_node
+    - docker build -t=shippabledocker/shiphitchcock2_sample_node .
+    - docker push shippabledocker/shiphitchcock2_sample_node
 
 integrations:
   hub:
