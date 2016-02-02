@@ -4,7 +4,8 @@ language: node_js
 # Version number
 node_js:
   - 0.12
-
+addons:
+   firefox: "21.0"
 env:
   global:
     - FOO=FUBU
@@ -25,6 +26,7 @@ build:
   ci:
     - ps -eax
     - ls -al
+    - firefox --version
 
   post_ci:
     - docker push shippabledocker/sample_node
