@@ -6,6 +6,8 @@ language:
 # Version number
 node_js:
   - 0.12
+python:
+  - 3.4
 
 env:
   global:
