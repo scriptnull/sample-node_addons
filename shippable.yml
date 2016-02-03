@@ -7,9 +7,8 @@ node_js:
 
 addons:
   selenium: "2.43"
-  firefox: 
-      - "21.0"
-      - "27.0"
+  firefox:  "21.0"
+  firefox:  "27.0"
    
     
 env:
