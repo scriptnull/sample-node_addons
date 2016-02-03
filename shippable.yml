@@ -9,7 +9,7 @@ addons:
   selenium: "2.43"
   firefox: 
       - "21.0"
-      - "32.0"
+      - "27.0"
    
     
 env:
