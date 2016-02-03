@@ -1,24 +1,47 @@
-language:
-     - python
-     - node_js
-# Version number
+language: node_js
+
+
 node_js:
-    - 0.12
-python:
-    - 3.4
-
+  - 0.12
+  - "0.10"
+  - 4.2.2
+  
 env:
-  global:
-    - FOO=FUBU
+  - M1=ONE
+  - M2=two
 
-  matrix:
-    - M1=ONE
+services:
+  - mysql
+  
+matrix:
+  allow_failures:
+    - node_js: 0.12
+      env: M1=ONE
+    - node_js: 0.12
+      env: M2=TWO
+    - node_js: 4.2.2
+     
+  exclude:
+    - node_js: "0.10"
+      env: M1=ONE
+    - node_js: "4.2.2"
+    
+    
+  include:
+    - node_js: "5.0"
+      env:
+         - key1=aaa
+         - key3=bbbb
+    - node_js: "0.10"
+      env: key2=aaaaa
+
 
 build:
   
   ci:
     - ps -eax
     - ls -al
+    - if [ "$SHIPPABLE_NODE_VERSION" == "0.12" ]; then foobar; fi
     #- sleep 7000s
 
   post_ci:
