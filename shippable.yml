@@ -33,6 +33,10 @@ build:
   post_ci:
     - docker build -t=quay.io/shippablequay/sample_node_pdr .
     - docker push quay.io/shippablequay/sample_node_pdr
+    - docker build --rm -t=quay.io/shippablequay/sample_node_pdr:test .
+    - docker build --rm -t=quay.io/shippablequay/sample_node_pdr:qa .
+    - docker push quay.io/shippablequay/sample_node_pdr:test
+    - docker push quay.io/shippablequay/sample_node_pdr:qa
     
 integrations:
   hub:
