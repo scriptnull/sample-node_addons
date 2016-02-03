@@ -1,6 +1,6 @@
 language:
-     - node_js
      - python
+     - node_js
 # Version number
 node_js:
     - 0.12
@@ -27,5 +27,4 @@ build:
 integrations:
   hub:
     - integrationName: ship-docker
-      type: docker
-     
+      type: ecr
