@@ -5,6 +5,11 @@ language: node_js
 node_js:
   - 0.12
 
+addons:
+  firefox: 
+    - 27.0
+    - 21.0
+    
 env:
   global:
     - FOO=FUBU
