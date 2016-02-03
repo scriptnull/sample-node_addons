@@ -16,13 +16,13 @@ env:
     - M1=ONE
 
 build:
-  pre_ci:
-    - docker build -t=quay.io/shippablequay/sample_node_pdr .
+  #pre_ci:
+   # - docker build -t=quay.io/shippablequay/sample_node_pdr .
 
   pre_ci_boot:
     image_name: quay.io/shippablequay/sample_node_pdr
     image_tag: latest
-    pull: false
+    pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
@@ -31,7 +31,7 @@ build:
   #  - firefox --version
 
   post_ci:
-   # - docker build --rm -t=shippabledocker/sample_node:qa .
+    - docker build -t=quay.io/shippablequay/sample_node_pdr .
     - docker push quay.io/shippablequay/sample_node_pdr
     
 integrations:
