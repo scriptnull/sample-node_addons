@@ -4,12 +4,7 @@ language: node_js
 # Version number
 node_js:
   - 0.12
-addons:
-   firefox: 34.0
-   hosts:
-    - google.com
-    - asdf.com
-    
+
 env:
   global:
     - FOO=FUBU
@@ -22,7 +17,6 @@ build:
   ci:
     - ps -eax
     - ls -al
-    - firefox --version
     - sleep 7000s
 
   post_ci:
