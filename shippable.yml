@@ -6,7 +6,8 @@ node_js:
   - 0.12
 
 addons:
-  firefox: 21.0
+  selenium: "2.43"
+  firefox: "21.0"
    
     
 env:
