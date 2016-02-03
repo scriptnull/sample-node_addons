@@ -1,6 +1,7 @@
 # Language setting
 language: 
    - node_js
+   - python
 
 # Version number
 node_js:
@@ -31,9 +32,7 @@ build:
   post_ci:
     - docker build --rm -t=shippabledocker/sample_node:qa .
     - docker push shippabledocker/sample_node:qa
-    - docker build --rm -t=shippabledocker/sample_node:qa*!! .
-    - docker push shippabledocker/sample_node:qa*!!
-
+    
 integrations:
   hub:
     - integrationName: ship-docker
