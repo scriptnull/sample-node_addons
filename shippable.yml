@@ -1,16 +1,18 @@
-# Language setting
-language: node_js
-
+language:
+     - node_js
+     - python
 # Version number
-node_js
-  - 0.12
+node_js:
+    - 0.12
+python:
+    - 3.4
 
 env:
   global:
     - FOO=FUBU
 
   matrix:
-     M1=ONE
+    - M1=ONE
 
 build:
   
