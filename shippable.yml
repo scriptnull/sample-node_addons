@@ -17,10 +17,10 @@ build:
   ci:
     - ps -eax
     - ls -al
-    - sleep 7000s
+    #- sleep 7000s
 
   post_ci:
-    - docker push shippabledocker/sample_node
+    #- docker push shippabledocker/sample_node
 
 integrations:
   hub:
