@@ -17,10 +17,10 @@ env:
 
 build:
   pre_ci:
-    - docker build -t=quay.io/shippabledocker/sample_node_pdr .
+    - docker build -t=quay.io/shippablequay/sample_node_pdr .
 
   pre_ci_boot:
-    image_name: quay.io/shippabledocker/sample_node_pdr
+    image_name: quay.io/shippablequay/sample_node_pdr
     image_tag: latest
     pull: false
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
@@ -32,7 +32,7 @@ build:
 
   post_ci:
    # - docker build --rm -t=shippabledocker/sample_node:qa .
-    - docker push quay.io/shippabledocker/sample_node_pdr
+    - docker push quay.io/shippablequay/sample_node_pdr
     
 integrations:
   hub:
