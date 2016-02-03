@@ -1,13 +1,12 @@
 # Language setting
 language: 
    - node_js
-   - python
+  
 
 # Version number
 node_js:
   - 0.12
-python:
-  - 3.4
+
 
 env:
   global:
@@ -18,7 +17,7 @@ env:
 
 build:
   pre_ci:
-    - docker build -t=shippabledocker/sample_node .
+    - docker build -t=shippabledocker/sample_node_pdr .
 
   pre_ci_boot:
     image_name: shippabledocker/sample_node
@@ -37,6 +36,6 @@ build:
     
 integrations:
   hub:
-    - integrationName: ship-docker
-      type: docker
+    - integrationName: ship-pdr
+      type: private docker registry
      
