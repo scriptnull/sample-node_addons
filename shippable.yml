@@ -6,7 +6,7 @@ node_js:
   - 0.12
 
 addons:
-  firefox: 32.0
+  firefox: 27.0
    
     
 env:
