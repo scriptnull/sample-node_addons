@@ -1,12 +1,14 @@
 # Language setting
-language: 
-   - node_js
+language: "node_js"
   
 
 # Version number
 node_js:
   - 0.12
 
+branches:
+ except:
+   - "pr2-master"
 
 env:
   global:
