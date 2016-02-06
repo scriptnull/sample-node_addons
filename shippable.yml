@@ -8,7 +8,12 @@ node_js:
 
 branches:
  except:
-   - "pr2-master"
+   - "pr2-master1"
+addons:
+ - firefox: "27.0"
+ 
+services:
+ - mysql
 
 env:
   global:
@@ -18,13 +23,13 @@ env:
     - M1=ONE
 
 build:
-  #pre_ci:
-   # - docker build -t=quay.io/shippablequay/sample_node_pdr .
+  pre_ci:
+    - docker build -t=quay.io/shippablequay/sample_node_pdr .
 
   pre_ci_boot:
-    image_name: drydock/u12nod
-    image_tag: prod
-    pull: true
+    image_name: quay.io/shippablequay/sample_node_pdr
+    image_tag: latest
+    pull: false
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
@@ -33,7 +38,7 @@ build:
   #  - firefox --version
 
   post_ci:
-    - docker build -t=shippabledocker/sample_node_pdr .
+    
     - docker push shippabledocker/sample_node_pdr
     - docker build --rm -t=quay.io/shippablequay/sample_node_pdr:test .
     - docker build --rm -t=quay.io/shippablequay/sample_node_pdr:qa .
