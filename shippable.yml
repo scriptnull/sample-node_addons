@@ -18,26 +18,30 @@ build:
   #pre_ci:
    # - docker build -t=quay.io/shippablequay/sample_node_pdr .
 
-  pre_ci_boot:
-    image_name: drydock/u12nod
-    image_tag: prod
-    pull: true
-    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+#  pre_ci_boot:
+#     image_name: drydock/u12nod
+#     image_tag: prod
+#     pull: true
+#     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
     - ps -eax
     - ls -al
   #  - firefox --version
 
-  post_ci:
+#  post_ci:
     
-    - docker build --rm -t=quay.io/shippablequay/sample_node_pdr:test .
-    - docker build --rm -t=quay.io/shippablequay/sample_node_pdr:qa .
-    - docker push quay.io/shippablequay/sample_node_pdr:test
-    - docker push quay.io/shippablequay/sample_node_pdr:qa
+#     - docker build --rm -t=quay.io/shippablequay/sample_node_pdr:test .
+#     - docker build --rm -t=quay.io/shippablequay/sample_node_pdr:qa .
+#     - docker push quay.io/shippablequay/sample_node_pdr:test
+#     - docker push quay.io/shippablequay/sample_node_pdr:qa
     
 integrations:
-  hub:
-    - integrationName: ship-pdr
-      type: private docker registry
+notifications:
+   - integrationName: email
+      type: email
+      recipients:
+         - vishnu@shippable.com
+      on_success: always
+      on_failure: always 
      
